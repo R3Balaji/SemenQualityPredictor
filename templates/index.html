@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Semen Quality Predictor</title>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="jumbotron" style="background:#57e6cd;color:#00000">
+    <div class="container"><center>
+      <h2 class=display-4>Semen Quality Predictor App</h2></center>
+<br>
+<center>
+<p>This predictor app is a student project done by Balaji Rajendran during the Microsoft Future Talent Ready  internship.</p>
+<p>Github ID - https://github.com/R3Balaji</p></center> 
+    
+	</div>
+</div>
+<div>
+<center>
+<p>Sperm concentration is related to socio-demographic data, environmental factors, health status, and life habits.</p> 
+<p>Please enter the following details and press the Predict button</p>
+</center>
+</div>
+<div class="wrapper" "bg-success" style="width:50%;float:left;">
+<form class="box" action ="{{ url_for('predict')}}"method="post">
+<fieldset class="border p-2">
+   <legend  class="w-auto">Details</legend> 
+    <label for="Season">Season: </label>
+    <select id="Season" name="Season">
+      <option value="0">winter</option>
+      <option value="1">spring</option>
+      <option value="2">summer</option>
+      <option value="3">fall</option>
+    </select>
+  <br>
+    <label for="Age">Age: </label>
+    <input type="text" id="Age" name="Age">
+<br>
+    <label for="childhood">Had chilhood diseases?</label>
+    <select id="childhood" name="childhood">
+      <option value="0">no</option>
+      <option value="1">yes</option>
+    </select>
+   <br>
+    <label for="accident">Had accident or serious trauma? </label>
+    <select id="accident" name="accident">
+      <option value="0">no</option>
+      <option value="1">yes</option>
+    </select>
+   <br>
+    <label for="surgery">Had any surgical intervention? </label>
+    <select id="surgery" name="surgery">
+      <option value="0">no</option>
+      <option value="1">yes</option>
+    </select>
+    <br>
+    <label for="fever">High fevers in the last year: </label>
+    <select id="fever" name="fever">
+      <option value="0">no</option>
+      <option value="1">less than 3 month</option>
+      <option value="2">more than 3</option>
+    </select>
+    <br>
+    <label for="alcohol">Frequency of alcohol consumption: </label>
+    <select id="alcohol" name="alcohol">
+      <option value="0">every day</option>
+      <option value="1">hardly ever or never</option>
+      <option value="2">once a week</option>
+      <option value="3">several times a day</option>
+      <option value="4">several times a week</option>
+    </select>
+   <br>
+    <label for="smoke">Smoking habit: </label>
+    <select id="smoke" name="smoke">
+      <option value="0">daily</option>
+      <option value="1">never</option>
+      <option value="2">occasionaly</option>
+      </select>
+<br>
+     <label for="sitting">Number of hours spent sitting per day: </label>
+    <input type="text" id="sitting" name="sitting">
+<center>
+    <button type="submit" class="btn btn-default">Predict</button>
+	<button type="reset" class="btn btn-default">Reset</button>
+</div>
+</center>
+</fieldset>    
+</form>
+<fieldset class="border p-2">
+<legend class="w-auto" align="center">Result</legend>
+<div class="pred" style="width:50%;float:left;">
+<p>Quality : {{prediction_text}}<p>
+<p>Probability: {{pred_probalility_score}}</p></center></fieldset><br><br><br><br><br><br><br><br>
+</div>
+</fieldset>
+</body>
+</html>
